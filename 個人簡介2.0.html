@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人簡介 | 陳宏耀</title>
+  <style>
+    :root { 
+      --primary-color: #4a90e2; 
+      --bg-color: #f8f9fa; 
+      --card-bg: #ffffff; 
+      --text-main: #333; 
+      --text-muted: #666;
+      --transition: all 0.3s ease; 
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+
+    /* 導覽列 */
+    .navbar { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); box-shadow: 0 4px 6px rgba(0,0,0,0.05); z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; }
+    .nav-logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: var(--transition); position: relative; padding: 5px 0; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px; background-color: var(--primary-color); transition: var(--transition); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+
+    /* 主要內容區塊 */
+    .page-container { padding: 120px 20px 80px; max-width: 1100px; margin: 0 auto; min-height: 85vh; }
+    .section-title { font-size: 2rem; text-align: center; margin-bottom: 30px; position: relative; }
+    .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary-color); margin: 10px auto 0; border-radius: 2px; }
+    
+    /* 網格與卡片設計 */
+    .profile-header { display: grid; grid-template-columns: 280px 1fr; gap: 30px; margin-bottom: 30px; align-items: center; }
+    .profile-avatar { width: 100%; max-width: 280px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .profile-bio h2 { font-size: 1.8rem; margin-bottom: 10px; color: var(--primary-color); }
+    .profile-bio p { color: var(--text-muted); font-size: 1.05rem; }
+
+    .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 30px; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-color); border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; }
+
+    /* 清單與項目標籤 */
+    .info-list { list-style: none; }
+    .info-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
+    .info-list li::before { content: "•"; color: var(--primary-color); font-weight: bold; font-size: 1.2rem; position: absolute; left: 0; top: -2px; }
+    .info-list .sub-text { font-size: 0.9rem; color: var(--text-muted); display: block; }
+
+    .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .tag { background: #eef5ff; color: var(--primary-color); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
+
+    /* 圖片網格展示 */
+    .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 15px; }
+    .img-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: var(--transition); }
+    .img-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+    .img-card img { width: 100%; height: 160px; object-fit: cover; display: block; background-color: #f0f0f0; }
+    .img-card .img-info { padding: 12px; }
+    .img-card .img-title { font-weight: bold; font-size: 0.95rem; color: var(--text-main); margin-bottom: 4px; }
+    .img-card .img-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* 頁尾 */
+    footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 0.9rem; margin-top: 40px; }
+
+    /* RWD 響應式調整 */
+    @media (max-width: 768px) {
+      .navbar { padding: 15px 20px; flex-direction: column; gap: 10px; }
+      .profile-header { grid-template-columns: 1fr; text-align: center; }
+      .profile-avatar { margin: 0 auto; }
+      .page-container { padding-top: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">陳宏耀 (Hung-Yao)</a>
+    <ul class="nav-links">
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="about.html" class="active">個人簡介</a></li>
+      <li><a href="portfolio.html">作品集</a></li>
+      <li><a href="association.html">系學會</a></li>
+      <li><a href="internship.html">實習成果</a></li>
+      <li><a href="contact.html">聯絡我</a></li>
+    </ul>
+  </nav>
+
+  <!-- 主要內容區 -->
+  <main class="page-container">
+    <h1 class="section-title">個人簡介</h1>
+
+    <!-- 圖片 1：個人形象大頭照 (ooo.jpg) -->
+    <div class="card profile-header">
+      <a href="ooo.jpg" target="_blank">
+        <img src="ooo.jpg" alt="陳宏耀" class="profile-avatar">
+      </a>
+      <div class="profile-bio">
+        <h2>陳宏耀</h2>
+        <p>跨足「高齡照顧服務」與「醫護教育數位學習」的專業人才。具備第一線照護實務經驗、急救救護技術（EMT-1、BLS）及銀髮族功能性體適能檢測資格。致力於結合醫療護理、高齡服務與數位教育科技，打造更全面且智慧的照護環境。</p>
+        
+        <div class="tag-container">
+          <span class="tag">高齡服務</span>
+          <span class="tag">照顧服務員</span>
+          <span class="tag">初級救護技術員 (EMT-1)</span>
+          <span class="tag">數位學習</span>
+          <span class="tag">體適能檢測</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 學歷與實習經歷區塊 -->
+    <div class="grid-layout">
+      <!-- 學歷背景 -->
+      <div class="card">
+        <h3>🎓 學歷背景</h3>
+        <ul class="info-list">
+          <li>
+            <strong>國立臺北護理健康大學</strong>
+            <span class="sub-text">醫護教育暨數位學習系（就讀中）</span>
+          </li>
+          <li>
+            <strong>國立臺南護理專科學校</strong>
+            <span class="sub-text">老人服務事業科（畢業）</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 實習與工作經歷 -->
+      <div class="card">
+        <h3>🏥 實習與工作經歷</h3>
+        <ul class="info-list">
+          <li>
+            <strong>晉生護理之家</strong>
+            <span class="sub-text">實習生</span>
+          </li>
+          <li>
+            <strong>高雄榮民總醫院臺南分院</strong>
+            <span class="sub-text">實習生</span>
+          </li>
+          <li>
+            <strong>臺南微光社會福利協會</strong>
+            <span class="sub-text">實習生</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 專業證照圖片展示區塊 (包含 5 張證照照片) -->
+    <div class="card" style="margin-bottom: 30px;">
+      <h3>📜 專業證照與認證照片</h3>
+      <div class="image-grid">
+        
+        <!-- 圖片 2：照顧服務員證照 (70829D98-A964-41AC-84CB-D5C7EF76B0B9.jpg) -->
+        <div class="img-card">
+          <a href="70829D98-A964-41AC-84CB-D5C7EF76B0B9.jpg" target="_blank">
+            <img src="70829D98-A964-41AC-84CB-D5C7EF76B0B9.jpg" alt="照顧服務員單一級技術士證">
+          </a>
+          <div class="img-info">
+            <div class="img-title">照顧服務員 (單一級)</div>
+            <div class="img-desc">中華民國技術士證 (勞動部)</div>
+          </div>
+        </div>
+
+        <!-- 圖片 3：EMT-1 證照 (S__95715393.jpg) -->
+        <div class="img-card">
+          <a href="S__95715393.jpg" target="_blank">
+            <img src="S__95715393.jpg" alt="初級救護技術員合格證書">
+          </a>
+          <div class="img-info">
+            <div class="img-title">初級救護技術員 (EMT-1)</div>
+            <div class="img-desc">台灣藍衣天使救護服務協會</div>
+          </div>
+        </div>
+
+        <!-- 圖片 4：BLS 證照 (S__95715390.jpg) -->
+        <div class="img-card">
+          <a href="S__95715390.jpg" target="_blank">
+            <img src="S__95715390.jpg" alt="基本救命術訓練合格證書">
+          </a>
+          <div class="img-info">
+            <div class="img-title">基本救命術 (BLS)</div>
+            <div class="img-desc">台灣藍衣天使救護服務協會</div>
+          </div>
+        </div>
+
+        <!-- 圖片 5：CPR+AED 證照 (S__95715389.jpg) -->
+        <div class="img-card">
+          <a href="S__95715389.jpg" target="_blank">
+            <img src="S__95715389.jpg" alt="CPR+AED 訓練合格證書">
+          </a>
+          <div class="img-info">
+            <div class="img-title">CPR+AED 訓練合格</div>
+            <div class="img-desc">台灣藍衣天使救護服務協會</div>
+          </div>
+        </div>
+
+        <!-- 圖片 6：銀髮族體適能檢測員 (S__95723679.jpg) -->
+        <div class="img-card">
+          <a href="S__95723679.jpg" target="_blank">
+            <img src="S__95723679.jpg" alt="銀髮族功能性體適能檢測員合格證書">
+          </a>
+          <div class="img-info">
+            <div class="img-title">銀髮族功能性體適能檢測員</div>
+            <div class="img-desc">中華民國體適能瑜珈協會</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 社團經歷與比賽證明區塊 (包含 2 張社團與射擊競賽證明圖片) -->
+    <div class="card">
+      <h3>🏆 社團經歷與榮譽證明</h3>
+      
+      <div class="image-grid" style="margin-bottom: 20px;">
+        <!-- 圖片 7：社團經歷證明 (S__95723677.jpg) -->
+        <div class="img-card">
+          <a href="S__95723677.jpg" target="_blank">
+            <img src="S__95723677.jpg" alt="國立臺南護理專科學校社團經歷證明">
+          </a>
+          <div class="img-info">
+            <div class="img-title">社團經歷證明書</div>
+            <div class="img-desc">臺南護專課外活動指導組</div>
+          </div>
+        </div>
+
+        <!-- 圖片 8：射擊競賽優異證書 (S__95723678.jpg) -->
+        <div class="img-card">
+          <a href="S__95723678.jpg" target="_blank">
+            <img src="S__95723678.jpg" alt="嘉南區大專院校射擊競賽表現優異證書">
+          </a>
+          <div class="img-info">
+            <div class="img-title">射擊競賽表現優異證書</div>
+            <div class="img-desc">臺南市射擊協會 (2022)</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="info-list">
+        <li>
+          <strong>老人服務事業科學生會</strong>
+          <span class="sub-text">器材部長 (112/02 - 112/06) / 器材長 (111/09 - 112/01)</span>
+        </li>
+        <li>
+          <strong>熱音社</strong>
+          <span class="sub-text">器材長 (110/09 - 111/06) / 社員 (109/09 - 110/06)</span>
+        </li>
+        <li>
+          <strong>2022年嘉南區大專院校射擊競賽</strong>
+          <span class="sub-text">課程訓練表現優異認證（臺南市射擊協會）</span>
+        </li>
+      </ul>
+    </div>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer>
+    <p>&copy; 2026 陳宏耀 (Chen, Hung-Yao). All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+```[cite: 1, 2, 3, 4, 5, 6, 7, 8, 9]
