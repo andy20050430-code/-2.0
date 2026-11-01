@@ -174,6 +174,100 @@
       .work-grid { grid-template-columns: 1fr; }
       .section-head { flex-direction: column; align-items: flex-start; }
     }
+    /* ===== 首頁2.html ===== */
+
+
+    /* ===== 首頁封面 ===== */
+    .hero { position: relative; overflow: hidden; background: var(--surface-2); min-height: min(86vh, 720px); display: flex; align-items: center; }
+    .hero .container { position: relative; z-index: 1; width: 100%; padding-top: 80px; padding-bottom: 80px; }
+    .hero-text { max-width: 560px; }
+    .hero h1 { font-size: clamp(3rem, 8vw, 5.6rem); font-weight: 900; color: var(--ink); letter-spacing: 4px; line-height: 1.05; }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero .lead { font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 22px 0 8px; letter-spacing: 1px; }
+    .hero .sub { color: var(--muted); font-size: .95rem; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+    .hero .geo { width: 48%; }
+    .hero .geo .avatar {
+      inset: auto; right: 9%; bottom: 15%; width: 150px; height: 150px; border-radius: 50%;
+      background: url("me-avatar.jpg") center / cover; border: 6px solid var(--teal);
+      box-shadow: 0 14px 36px rgba(47,53,59,.35);
+    }
+    .scroll-cue { position: absolute; left: max(32px, calc((100% - 1160px) / 2 + 32px)); bottom: 28px; z-index: 1; font-size: .72rem; letter-spacing: 3px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+    .scroll-cue::before { content: ''; width: 40px; height: 1px; background: var(--muted); }
+
+    /* ===== 關於我 ===== */
+    .about { background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: center; }
+    .about-photo { position: relative; }
+    .about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; position: relative; z-index: 1; }
+    .about-photo::before { content: ''; position: absolute; inset: 22px -22px -22px 22px; background: var(--surface-2); }
+    .about-photo::after { content: ''; position: absolute; z-index: 2; width: 64px; height: 64px; border-radius: 50%; background: var(--teal); right: -14px; bottom: 36px; }
+    .about-text h2 { font-size: 2rem; font-weight: 900; color: var(--ink); letter-spacing: 2px; margin-bottom: 18px; }
+    .about-text p { margin-bottom: 12px; }
+    .about-text strong { color: var(--ink); }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 28px 0 32px; }
+    .facts div { background: var(--surface); padding: 16px 18px; }
+    .facts b { display: block; color: var(--teal); font-size: .72rem; letter-spacing: 2px; }
+    .facts span { color: var(--ink); font-weight: 700; font-size: .95rem; }
+
+    @media (max-width: 760px) {
+      .hero { min-height: auto; display: block; }
+      .hero .container { padding-top: 56px; padding-bottom: 240px; }
+      .hero .geo { top: auto; height: 210px; width: 100%; }
+      .hero .geo .avatar { width: 104px; height: 104px; bottom: 44px; border-width: 5px; }
+      .scroll-cue { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-photo { max-width: 280px; }
+      .facts { grid-template-columns: 1fr; }
+    }
+  
+    /* ===== 個人簡介2.0.html ===== */
+
+
+    /* ===== 個人簡介 ===== */
+    .profile { display: grid; grid-template-columns: 300px 1fr; gap: 0; overflow: hidden; margin-top: -48px; position: relative; z-index: 2; }
+    .profile-photo { background: var(--slate); }
+    .profile-photo img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; }
+    .profile-bio { padding: 40px 44px; }
+    .profile-bio h2 { font-size: 2rem; font-weight: 900; color: var(--ink); letter-spacing: 3px; }
+    .profile-bio .en { color: var(--muted); font-size: .85rem; letter-spacing: 3px; margin-bottom: 16px; }
+    .profile-bio p { color: var(--text); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .tag { border: 1px solid var(--teal); color: var(--teal-dark); background: var(--teal-soft); padding: 4px 14px; border-radius: 2px; font-size: .84rem; font-weight: 500; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .block { padding: 34px 36px; }
+    .block-title { display: flex; align-items: center; gap: 12px; font-size: 1.15rem; font-weight: 700; color: var(--ink); letter-spacing: 1px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .block-title::before { content: ''; width: 6px; height: 1.2em; background: var(--teal); }
+    .block-title small { margin-left: auto; color: var(--mist); font-size: .7rem; letter-spacing: 2px; font-weight: 700; }
+
+    .timeline { list-style: none; }
+    .timeline li { position: relative; padding: 0 0 18px 26px; border-left: 2px solid var(--line); margin-left: 5px; }
+    .timeline li:last-child { padding-bottom: 0; border-left-color: transparent; }
+    .timeline li::before { content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; background: var(--teal); border-radius: 50%; box-shadow: 0 0 0 4px var(--teal-soft); }
+    .timeline strong { color: var(--ink); display: block; line-height: 1.5; }
+    .timeline span { color: var(--muted); font-size: .9rem; }
+
+    .img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    .img-card { display: block; text-decoration: none; color: inherit; background: var(--bg); border-radius: 2px; overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+    .img-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .img-card img { width: 100%; height: 160px; object-fit: cover; background: var(--surface-2); }
+    .img-info { padding: 12px 14px 14px; border-top: 3px solid var(--teal); }
+    .img-title { font-weight: 700; color: var(--ink); font-size: .92rem; line-height: 1.5; }
+    .img-desc { color: var(--muted); font-size: .8rem; }
+    .stack > * + * { margin-top: 28px; }
+
+    @media (max-width: 760px) {
+      .profile { grid-template-columns: 1fr; margin-top: -60px; }
+      .profile-photo img { min-height: 0; aspect-ratio: 1 / 1; }
+      .profile-bio, .block { padding: 26px 22px; }
+      .two-col { grid-template-columns: 1fr; }
+      .img-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .img-card img { height: 120px; }
+    }
+  
+    /* ===== 作品集.html ===== */
+
 
     /* ===== 作品集 ===== */
     .work-num { position: absolute; z-index: 2; top: 14px; left: 16px; background: rgba(47,53,59,.82); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: 2px; padding: 2px 10px; border-radius: 2px; }
@@ -235,22 +329,213 @@
       .modal-title { max-width: 88%; font-size: 1.25rem; }
       .modal-body { padding: 22px; }
     }
+  
+    /* 單頁切換 */
+    .spa-page { display: none; }
+    .spa-page.is-active { display: block; animation: spaFade .3s ease; }
+    @keyframes spaFade { from { opacity: 0; } to { opacity: 1; } }
+
   </style>
 </head>
-<body>
+<body data-start="works">
 
   <nav class="navbar">
     <div class="nav-inner">
       <a href="首頁2.html" class="nav-logo"><img src="動漫舞台上的彩色貝斯手.png" alt="頭像">141D12026</a>
       <ul class="nav-links">
-        <li><a href="首頁2.html">首頁</a></li>
-        <li><a href="個人簡介2.0.html">個人簡介</a></li>
-        <li><a href="作品集.html" class="active">作品集</a></li>
+        <li><a href="首頁2.html" data-page="home">首頁</a></li>
+        <li><a href="個人簡介2.0.html" data-page="about">個人簡介</a></li>
+        <li><a href="作品集.html" data-page="works">作品集</a></li>
         <li><a href="https://sites.google.com/view/141d12026/%E8%A1%A8%E5%96%AE" target="_blank" rel="noopener">表單 ↗</a></li>
         <li><a href="https://sites.google.com/view/141d12026/ga" target="_blank" rel="noopener">GA ↗</a></li>
       </ul>
     </div>
   </nav>
+
+  <div class="spa-page" data-page="home">
+
+  <!-- 封面 -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <span class="eyebrow">Portfolio · 141D12026</span>
+        <h1>KEEP<br><em>GOING</em></h1>
+        <p class="lead">以作品記錄學習，持續探索與成長</p>
+        <p class="sub">陳宏耀｜國立臺北護理健康大學 醫護教育暨數位學習系</p>
+        <div class="hero-actions">
+          <a href="作品集.html" class="btn">瀏覽作品集 →</a>
+          <a href="個人簡介2.0.html" class="btn btn-ghost">認識我</a>
+        </div>
+      </div>
+    </div>
+    <div class="geo" aria-hidden="true">
+      <span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="avatar"></span>
+    </div>
+    <div class="scroll-cue">SCROLL</div>
+  </header>
+
+  <!-- 精選作品 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">精選作品</h2>
+        <a href="作品集.html" class="link-more">查看全部作品 →</a>
+      </div>
+      <div class="work-grid">
+        <a class="work" href="作品集.html">
+          <div class="work-cover"><img src="photo-homie-award.jpg" alt="homie 加壓機 頒獎典禮" style="object-position: center 40%;"></div>
+          <div class="work-body">
+            <span class="work-tag">創新創業</span>
+            <h3 class="work-title">homie 加壓機 創新創業企劃</h3>
+            <p class="work-desc">結合醫護教育與跨領域技術之創新醫療器材與商業企劃案。</p>
+          </div>
+        </a>
+        <a class="work" href="作品集.html">
+          <div class="work-cover"><img src="podcast.png" alt="Podcast 熬夜的代價"></div>
+          <div class="work-body">
+            <span class="work-tag">PODCAST</span>
+            <h3 class="work-title">Podcast《熬夜的代價》</h3>
+            <p class="work-desc">探討「你以為的放鬆是慢性傷害」健康議題之音訊節目與企劃。</p>
+          </div>
+        </a>
+        <a class="work" href="作品集.html">
+          <div class="work-cover">
+            <img src="cover-mirror.png" alt="《鏡中不是我》簡報封面">
+          </div>
+          <div class="work-body">
+            <span class="work-tag">影音分鏡</span>
+            <h3 class="work-title">腳本企劃《鏡中不是我》</h3>
+            <p class="work-desc">擔任導演執導短片，探討社群媒體時代下的容貌焦慮與自我認同。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 關於我 -->
+  <section class="section about">
+    <div class="container about-grid">
+      <div class="about-photo"><img src="ooo.jpg" alt="陳宏耀"></div>
+      <div class="about-text">
+        <span class="eyebrow">About Me</span>
+        <h2>哈囉，我是陳宏耀</h2>
+        <p>目前就讀<strong>國立臺北護理健康大學 醫護教育暨數位學習系</strong>，專注於探索科技教育與數位學習技術的創新應用，致力於將數位工具融入教學設計中。</p>
+        <p>過去曾就讀<strong>老人服務事業科</strong>，具備高齡服務、長期照護與福祉企劃的實務經驗。期望結合跨領域的專業，打造更具影響力與溫度的數位學習體驗！</p>
+        <div class="facts">
+          <div><b>FOCUS</b><span>數位學習設計</span></div>
+          <div><b>BACKGROUND</b><span>高齡照顧服務</span></div>
+          <div><b>CERTIFIED</b><span>EMT-1・BLS</span></div>
+        </div>
+        <a href="個人簡介2.0.html" class="btn btn-ghost">完整個人簡介 →</a>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  <div class="spa-page" data-page="about">
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow">About</span>
+      <h1>個人簡介</h1>
+      <p>高齡照顧服務 × 醫護教育數位學習</p>
+    </div>
+    <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+  </header>
+
+  <main class="section" style="padding-top: 0;">
+    <div class="container stack">
+
+      <!-- 個人形象 -->
+      <div class="card profile">
+        <a class="profile-photo" href="ooo.jpg" target="_blank"><img src="ooo.jpg" alt="陳宏耀"></a>
+        <div class="profile-bio">
+          <h2>陳宏耀</h2>
+          <div class="en">CHEN, HUNG-YAO</div>
+          <p>跨足「高齡照顧服務」與「醫護教育數位學習」的專業人才。具備第一線照護實務經驗、急救救護技術（EMT-1、BLS）及銀髮族功能性體適能檢測資格。致力於結合醫療護理、高齡服務與數位教育科技，打造更全面且智慧的照護環境。</p>
+          <div class="tags">
+            <span class="tag">高齡服務</span>
+            <span class="tag">照顧服務員</span>
+            <span class="tag">初級救護技術員 (EMT-1)</span>
+            <span class="tag">數位學習</span>
+            <span class="tag">體適能檢測</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 學歷與經歷 -->
+      <div class="two-col">
+        <div class="card block">
+          <h3 class="block-title">學歷背景<small>EDUCATION</small></h3>
+          <ul class="timeline">
+            <li><strong>國立臺北護理健康大學</strong><span>醫護教育暨數位學習系（就讀中）</span></li>
+            <li><strong>國立臺南護理專科學校</strong><span>老人服務事業科（畢業）</span></li>
+          </ul>
+        </div>
+        <div class="card block">
+          <h3 class="block-title">實習與工作經歷<small>EXPERIENCE</small></h3>
+          <ul class="timeline">
+            <li><strong>晉生護理之家</strong><span>實習生</span></li>
+            <li><strong>高雄榮民總醫院臺南分院</strong><span>實習生</span></li>
+            <li><strong>臺南微光社會福利協會</strong><span>實習生</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 專業證照 -->
+      <div class="card block">
+        <h3 class="block-title">專業證照與認證<small>CERTIFICATES</small></h3>
+        <div class="img-grid">
+          <a class="img-card" href="70829D98-A964-41AC-84CB-D5C7EF76B0B9.jpg" target="_blank">
+            <img src="70829D98-A964-41AC-84CB-D5C7EF76B0B9.jpg" alt="照顧服務員單一級技術士證">
+            <div class="img-info"><div class="img-title">照顧服務員（單一級）</div><div class="img-desc">中華民國技術士證（勞動部）</div></div>
+          </a>
+          <a class="img-card" href="S__95715393.jpg" target="_blank">
+            <img src="S__95715393.jpg" alt="初級救護技術員合格證書">
+            <div class="img-info"><div class="img-title">初級救護技術員（EMT-1）</div><div class="img-desc">台灣藍衣天使救護服務協會</div></div>
+          </a>
+          <a class="img-card" href="S__95715390.jpg" target="_blank">
+            <img src="S__95715390.jpg" alt="基本救命術訓練合格證書">
+            <div class="img-info"><div class="img-title">基本救命術（BLS）</div><div class="img-desc">台灣藍衣天使救護服務協會</div></div>
+          </a>
+          <a class="img-card" href="S__95715389.jpg" target="_blank">
+            <img src="S__95715389.jpg" alt="CPR+AED 訓練合格證書">
+            <div class="img-info"><div class="img-title">CPR + AED 訓練合格</div><div class="img-desc">台灣藍衣天使救護服務協會</div></div>
+          </a>
+          <a class="img-card" href="S__95723679.jpg" target="_blank">
+            <img src="S__95723679.jpg" alt="銀髮族功能性體適能檢測員合格證書">
+            <div class="img-info"><div class="img-title">銀髮族功能性體適能檢測員</div><div class="img-desc">中華民國體適能瑜珈協會</div></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 社團與榮譽 -->
+      <div class="card block">
+        <h3 class="block-title">社團經歷與榮譽<small>ACTIVITIES</small></h3>
+        <div class="two-col">
+          <ul class="timeline">
+            <li><strong>老人服務事業科學生會</strong><span>器材部長（112/02 – 112/06）／器材長（111/09 – 112/01）</span></li>
+            <li><strong>熱音社</strong><span>器材長（110/09 – 111/06）／社員（109/09 – 110/06）</span></li>
+            <li><strong>2022 年嘉南區大專院校射擊競賽</strong><span>課程訓練表現優異認證（臺南市射擊協會）</span></li>
+          </ul>
+          <div class="img-grid">
+            <a class="img-card" href="S__95723677.jpg" target="_blank">
+              <img src="S__95723677.jpg" alt="國立臺南護理專科學校社團經歷證明">
+              <div class="img-info"><div class="img-title">社團經歷證明書</div><div class="img-desc">臺南護專課外活動指導組</div></div>
+            </a>
+            <a class="img-card" href="S__95723678.jpg" target="_blank">
+              <img src="S__95723678.jpg" alt="嘉南區大專院校射擊競賽表現優異證書">
+              <div class="img-info"><div class="img-title">射擊競賽表現優異證書</div><div class="img-desc">臺南市射擊協會（2022）</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  </div>
+  <div class="spa-page" data-page="works">
 
   <header class="page-hero">
     <div class="container">
@@ -641,6 +926,8 @@
     </div>
   </div>
 
+  </div>
+
   <footer>
     <div class="container">
       <span><strong>陳宏耀</strong>&nbsp;&nbsp;CHEN, HUNG-YAO</span>
@@ -649,6 +936,7 @@
   </footer>
 
   <script>
+
     // 打開視窗時才載入簡報與影片；關掉時清空，影片就會停止播放
     function openModal(id) {
       var m = document.getElementById(id);
@@ -666,6 +954,28 @@
     window.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') document.querySelectorAll('.modal.active').forEach(function (m) { closeModal(m.id); });
     });
+  
+    (function () {
+      var map = { '首頁2.html': 'home', '個人簡介2.0.html': 'about', '作品集.html': 'works', '': 'home' };
+      var titles = { home: '首頁 | 陳宏耀個人作品集', about: '個人簡介 | 陳宏耀', works: '作品集 | 陳宏耀個人作品集' };
+      function show(key, push) {
+        if (!titles[key]) key = 'home';
+        document.querySelectorAll('.spa-page').forEach(function (p) { p.classList.toggle('is-active', p.dataset.page === key); });
+        document.querySelectorAll('.nav-links a[data-page]').forEach(function (a) { a.classList.toggle('active', a.dataset.page === key); });
+        document.title = titles[key];
+        if (push) { try { history.replaceState(null, '', '#' + key); } catch (e) { location.hash = key; } }
+        window.scrollTo(0, 0);
+      }
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href]');
+        if (!a || a.target === '_blank') return;
+        var href = decodeURI(a.getAttribute('href').split('#')[0].split('?')[0]).split('/').pop();
+        if (href in map) { e.preventDefault(); show(map[href], true); }
+      });
+      var start = location.hash.replace('#', '') || document.body.dataset.start;
+      show(start, false);
+    })();
+
   </script>
 </body>
 </html>

@@ -174,6 +174,55 @@
       .work-grid { grid-template-columns: 1fr; }
       .section-head { flex-direction: column; align-items: flex-start; }
     }
+    /* ===== 首頁2.html ===== */
+
+
+    /* ===== 首頁封面 ===== */
+    .hero { position: relative; overflow: hidden; background: var(--surface-2); min-height: min(86vh, 720px); display: flex; align-items: center; }
+    .hero .container { position: relative; z-index: 1; width: 100%; padding-top: 80px; padding-bottom: 80px; }
+    .hero-text { max-width: 560px; }
+    .hero h1 { font-size: clamp(3rem, 8vw, 5.6rem); font-weight: 900; color: var(--ink); letter-spacing: 4px; line-height: 1.05; }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero .lead { font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 22px 0 8px; letter-spacing: 1px; }
+    .hero .sub { color: var(--muted); font-size: .95rem; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+    .hero .geo { width: 48%; }
+    .hero .geo .avatar {
+      inset: auto; right: 9%; bottom: 15%; width: 150px; height: 150px; border-radius: 50%;
+      background: url("me-avatar.jpg") center / cover; border: 6px solid var(--teal);
+      box-shadow: 0 14px 36px rgba(47,53,59,.35);
+    }
+    .scroll-cue { position: absolute; left: max(32px, calc((100% - 1160px) / 2 + 32px)); bottom: 28px; z-index: 1; font-size: .72rem; letter-spacing: 3px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+    .scroll-cue::before { content: ''; width: 40px; height: 1px; background: var(--muted); }
+
+    /* ===== 關於我 ===== */
+    .about { background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: center; }
+    .about-photo { position: relative; }
+    .about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; position: relative; z-index: 1; }
+    .about-photo::before { content: ''; position: absolute; inset: 22px -22px -22px 22px; background: var(--surface-2); }
+    .about-photo::after { content: ''; position: absolute; z-index: 2; width: 64px; height: 64px; border-radius: 50%; background: var(--teal); right: -14px; bottom: 36px; }
+    .about-text h2 { font-size: 2rem; font-weight: 900; color: var(--ink); letter-spacing: 2px; margin-bottom: 18px; }
+    .about-text p { margin-bottom: 12px; }
+    .about-text strong { color: var(--ink); }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 28px 0 32px; }
+    .facts div { background: var(--surface); padding: 16px 18px; }
+    .facts b { display: block; color: var(--teal); font-size: .72rem; letter-spacing: 2px; }
+    .facts span { color: var(--ink); font-weight: 700; font-size: .95rem; }
+
+    @media (max-width: 760px) {
+      .hero { min-height: auto; display: block; }
+      .hero .container { padding-top: 56px; padding-bottom: 240px; }
+      .hero .geo { top: auto; height: 210px; width: 100%; }
+      .hero .geo .avatar { width: 104px; height: 104px; bottom: 44px; border-width: 5px; }
+      .scroll-cue { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-photo { max-width: 280px; }
+      .facts { grid-template-columns: 1fr; }
+    }
+  
+    /* ===== 個人簡介2.0.html ===== */
+
 
     /* ===== 個人簡介 ===== */
     .profile { display: grid; grid-template-columns: 300px 1fr; gap: 0; overflow: hidden; margin-top: -48px; position: relative; z-index: 2; }
@@ -216,22 +265,174 @@
       .img-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .img-card img { height: 120px; }
     }
+  
+    /* ===== 作品集.html ===== */
+
+
+    /* ===== 作品集 ===== */
+    .work-num { position: absolute; z-index: 2; top: 14px; left: 16px; background: rgba(47,53,59,.82); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: 2px; padding: 2px 10px; border-radius: 2px; }
+    .work.is-soon { box-shadow: none; border: 1px dashed var(--mist); background: transparent; }
+    .work.is-soon:hover { transform: none; }
+    .soon { align-self: flex-start; font-size: .8rem; font-weight: 700; letter-spacing: 2px; color: var(--muted); border: 1px solid var(--line); padding: 6px 14px; border-radius: 2px; }
+
+    /* 彈窗內直接預覽：簡報與影片 */
+    .modal-content.wide { max-width: 980px; }
+    .media-block { margin-top: 26px; }
+    .media-label { display: flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 700; color: var(--teal-dark); letter-spacing: 1px; margin-bottom: 10px; }
+    .media-label span { color: var(--muted); font-weight: 500; letter-spacing: 0; }
+    .media-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--slate); border-radius: 4px; overflow: hidden; box-shadow: var(--shadow); }
+    .media-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .media-empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--mist-2); font-size: .9rem; text-align: center; padding: 20px; }
+    .media-empty b { color: #fff; font-size: 1rem; letter-spacing: 1px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .chips span { font-size: .78rem; font-weight: 500; color: var(--teal-dark); background: var(--teal-soft); padding: 3px 12px; border-radius: 2px; }
+    /* 活動花絮照片 */
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .photo-grid a { display: block; overflow: hidden; border-radius: 4px; background: var(--surface-2); }
+    .photo-grid img { width: 100%; height: 220px; object-fit: cover; transition: transform .5s var(--ease); }
+    .photo-grid a:hover img { transform: scale(1.04); }
+    .photo-grid figure { margin: 0; }
+    .photo-grid.single { display: flex; }
+    .photo-grid.single a { display: inline-block; }
+    .photo-grid.single img { width: auto; height: auto; max-width: 100%; max-height: 420px; }
+    .photo-grid figcaption { font-size: .8rem; color: var(--muted); padding: 6px 2px 0; }
+    .award { position: absolute; z-index: 2; top: 14px; right: 14px; background: var(--teal); color: #fff; font-size: .74rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; box-shadow: var(--shadow); }
+    .award-line { display: inline-flex; align-items: center; gap: 8px; background: var(--teal-soft); color: var(--teal-dark); font-weight: 700; font-size: .9rem; padding: 6px 14px; border-left: 4px solid var(--teal); margin-bottom: 14px; }
+    /* 彈窗 */
+    .modal { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(47,53,59,.7); backdrop-filter: blur(4px); padding: 24px; align-items: center; justify-content: center; }
+    .modal.active { display: flex; animation: fade .25s var(--ease); }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    .modal-content { position: relative; width: 100%; max-width: 860px; max-height: 86vh; overflow-y: auto; background: var(--surface); border-radius: 4px; box-shadow: var(--shadow-lg); animation: rise .35s var(--ease); }
+    @keyframes rise { from { transform: translateY(16px); } to { transform: none; } }
+    .modal-head { position: relative; overflow: hidden; background: var(--surface-2); padding: 34px 40px 30px; }
+    .modal-head .geo { width: 34%; }
+    .modal-head .geo .dot { width: 40px; height: 40px; bottom: 18%; }
+    .modal-head > :not(.geo) { position: relative; z-index: 1; }
+    .modal-tag { display: inline-block; font-size: .74rem; font-weight: 700; letter-spacing: 2px; color: var(--teal); margin-bottom: 6px; }
+    .modal-title { font-size: 1.5rem; font-weight: 900; color: var(--ink); line-height: 1.45; max-width: 68%; }
+    .modal-close { position: absolute; z-index: 2; top: 14px; right: 16px; width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--surface); color: var(--slate); font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: var(--shadow); }
+    .modal-close:hover { background: var(--slate); color: #fff; }
+    .modal-body { padding: 30px 40px 36px; font-size: .98rem; }
+    .modal-body h4 { display: flex; align-items: center; gap: 10px; color: var(--ink); font-size: 1.02rem; margin: 24px 0 8px; }
+    .modal-body h4::before { content: ''; width: 5px; height: 1.1em; background: var(--teal); }
+    .modal-body strong { color: var(--ink); }
+    .modal-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .img-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 20px; }
+    .img-gallery a { display: block; overflow: hidden; border-radius: 2px; background: var(--surface-2); }
+    .img-gallery img { width: 100%; height: 160px; object-fit: cover; transition: transform .5s var(--ease); }
+    .img-gallery a:hover img { transform: scale(1.05); }
+
+    @media (max-width: 760px) {
+      .modal { padding: 10px; }
+      .modal-head { padding: 26px 22px 22px; }
+      .modal-head .geo { display: none; }
+      .modal-title { max-width: 88%; font-size: 1.25rem; }
+      .modal-body { padding: 22px; }
+    }
+  
+    /* 單頁切換 */
+    .spa-page { display: none; }
+    .spa-page.is-active { display: block; animation: spaFade .3s ease; }
+    @keyframes spaFade { from { opacity: 0; } to { opacity: 1; } }
+
   </style>
 </head>
-<body>
+<body data-start="about">
 
   <nav class="navbar">
     <div class="nav-inner">
       <a href="首頁2.html" class="nav-logo"><img src="動漫舞台上的彩色貝斯手.png" alt="頭像">141D12026</a>
       <ul class="nav-links">
-        <li><a href="首頁2.html">首頁</a></li>
-        <li><a href="個人簡介2.0.html" class="active">個人簡介</a></li>
-        <li><a href="作品集.html">作品集</a></li>
+        <li><a href="首頁2.html" data-page="home">首頁</a></li>
+        <li><a href="個人簡介2.0.html" data-page="about">個人簡介</a></li>
+        <li><a href="作品集.html" data-page="works">作品集</a></li>
         <li><a href="https://sites.google.com/view/141d12026/%E8%A1%A8%E5%96%AE" target="_blank" rel="noopener">表單 ↗</a></li>
         <li><a href="https://sites.google.com/view/141d12026/ga" target="_blank" rel="noopener">GA ↗</a></li>
       </ul>
     </div>
   </nav>
+
+  <div class="spa-page" data-page="home">
+
+  <!-- 封面 -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <span class="eyebrow">Portfolio · 141D12026</span>
+        <h1>KEEP<br><em>GOING</em></h1>
+        <p class="lead">以作品記錄學習，持續探索與成長</p>
+        <p class="sub">陳宏耀｜國立臺北護理健康大學 醫護教育暨數位學習系</p>
+        <div class="hero-actions">
+          <a href="作品集.html" class="btn">瀏覽作品集 →</a>
+          <a href="個人簡介2.0.html" class="btn btn-ghost">認識我</a>
+        </div>
+      </div>
+    </div>
+    <div class="geo" aria-hidden="true">
+      <span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="avatar"></span>
+    </div>
+    <div class="scroll-cue">SCROLL</div>
+  </header>
+
+  <!-- 精選作品 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">精選作品</h2>
+        <a href="作品集.html" class="link-more">查看全部作品 →</a>
+      </div>
+      <div class="work-grid">
+        <a class="work" href="作品集.html">
+          <div class="work-cover"><img src="photo-homie-award.jpg" alt="homie 加壓機 頒獎典禮" style="object-position: center 40%;"></div>
+          <div class="work-body">
+            <span class="work-tag">創新創業</span>
+            <h3 class="work-title">homie 加壓機 創新創業企劃</h3>
+            <p class="work-desc">結合醫護教育與跨領域技術之創新醫療器材與商業企劃案。</p>
+          </div>
+        </a>
+        <a class="work" href="作品集.html">
+          <div class="work-cover"><img src="podcast.png" alt="Podcast 熬夜的代價"></div>
+          <div class="work-body">
+            <span class="work-tag">PODCAST</span>
+            <h3 class="work-title">Podcast《熬夜的代價》</h3>
+            <p class="work-desc">探討「你以為的放鬆是慢性傷害」健康議題之音訊節目與企劃。</p>
+          </div>
+        </a>
+        <a class="work" href="作品集.html">
+          <div class="work-cover">
+            <img src="cover-mirror.png" alt="《鏡中不是我》簡報封面">
+          </div>
+          <div class="work-body">
+            <span class="work-tag">影音分鏡</span>
+            <h3 class="work-title">腳本企劃《鏡中不是我》</h3>
+            <p class="work-desc">擔任導演執導短片，探討社群媒體時代下的容貌焦慮與自我認同。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 關於我 -->
+  <section class="section about">
+    <div class="container about-grid">
+      <div class="about-photo"><img src="ooo.jpg" alt="陳宏耀"></div>
+      <div class="about-text">
+        <span class="eyebrow">About Me</span>
+        <h2>哈囉，我是陳宏耀</h2>
+        <p>目前就讀<strong>國立臺北護理健康大學 醫護教育暨數位學習系</strong>，專注於探索科技教育與數位學習技術的創新應用，致力於將數位工具融入教學設計中。</p>
+        <p>過去曾就讀<strong>老人服務事業科</strong>，具備高齡服務、長期照護與福祉企劃的實務經驗。期望結合跨領域的專業，打造更具影響力與溫度的數位學習體驗！</p>
+        <div class="facts">
+          <div><b>FOCUS</b><span>數位學習設計</span></div>
+          <div><b>BACKGROUND</b><span>高齡照顧服務</span></div>
+          <div><b>CERTIFIED</b><span>EMT-1・BLS</span></div>
+        </div>
+        <a href="個人簡介2.0.html" class="btn btn-ghost">完整個人簡介 →</a>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  <div class="spa-page" data-page="about">
 
   <header class="page-hero">
     <div class="container">
@@ -333,6 +534,400 @@
     </div>
   </main>
 
+  </div>
+  <div class="spa-page" data-page="works">
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Works</span>
+      <h1>作品集</h1>
+      <p>從創新創業、Podcast、互動電子書到影像創作，記錄在醫護教育與數位學習上的每一次嘗試。</p>
+    </div>
+    <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="work-grid">
+
+        <!-- 1. 創新創業 -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">01</span><span class="award">🏆 優選團隊獎</span><img src="photo-homie-award.jpg" alt="homie 加壓機 榮獲 2026 NYCU 創新創業競賽優選團隊獎" style="object-position: center 40%;"></div>
+          <div class="work-body">
+            <span class="work-tag">創新創業</span>
+            <h3 class="work-title">homie 加壓機 創新創業企劃</h3>
+            <p class="work-desc">結合醫護教育與跨領域技術之創新醫療器材與商業企劃案。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-startup')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 2. Podcast -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">02</span><img src="podcast.png" alt="熬夜的代價 Podcast"></div>
+          <div class="work-body">
+            <span class="work-tag">PODCAST</span>
+            <h3 class="work-title">Podcast《熬夜的代價》</h3>
+            <p class="work-desc">探討「你以為的放鬆是慢性傷害」健康議題之音訊節目與企劃。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-podcast')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 3. 電子書 -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">03</span>
+            <img src="cover-sleep.png" alt="《睡眠怪獸的祕密》簡報封面">
+          </div>
+          <div class="work-body">
+            <span class="work-tag">互動電子書</span>
+            <h3 class="work-title">《睡眠怪獸的祕密》電子書</h3>
+            <p class="work-desc">以故事導向與角色化方式，協助國小生認識睡眠健康與建立規律作息。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-ebook')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 4. H5P -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">04</span>
+            <div class="cover-geo tone-mist"><span class="ring"></span><span class="label"><small>INTERACTIVE</small>H5P 互動學習</span></div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag">H5P 互動</span>
+            <h3 class="work-title">H5P 數位互動學習模組</h3>
+            <p class="work-desc">運用 H5P 工具規劃數位問答與互動組件，增進自主學習樂趣。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-h5p')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 5. AR/VR -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">05</span>
+            <img src="cover-cpr.png" alt="《C手相救》簡報封面">
+          </div>
+          <div class="work-body">
+            <span class="work-tag">AR / VR 專案</span>
+            <h3 class="work-title">C手相救 AR / VR 專案</h3>
+            <p class="work-desc">結合虛擬實境模擬心肺復甦術（CPR）急救流程，強化操作記憶。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-arvr')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 6. 簡報及海報 -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">06</span><img src="2026-10-11 212908.png" alt="簡報海報模板"></div>
+          <div class="work-body">
+            <span class="work-tag">平面視覺</span>
+            <h3 class="work-title">簡報及海報模板製作</h3>
+            <p class="work-desc">醫教系視覺模板、時間軸、階梯圖及衛教宣導海報設計。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-poster')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 7. 鏡中不是我 -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">07</span>
+            <img src="cover-mirror.png" alt="《鏡中不是我》簡報封面">
+          </div>
+          <div class="work-body">
+            <span class="work-tag">影音分鏡</span>
+            <h3 class="work-title">腳本企劃《鏡中不是我》</h3>
+            <p class="work-desc">擔任導演執導短片作品，探討容貌焦慮與社群媒體時代下的自我認同危機。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-script')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 8. 溝通情境模擬（SEL） -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">08</span>
+            <img src="cover-sel.png" alt="《溝通情境模擬》簡報封面">
+          </div>
+          <div class="work-body">
+            <span class="work-tag">情境模擬教學</span>
+            <h3 class="work-title">溝通情境模擬｜SEL 社會情緒學習</h3>
+            <p class="work-desc">以 ADDIE 模式設計情境模擬教學活動，透過角色扮演與真實情境，培養學生的社會情緒與溝通能力。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-sel')">檢視詳細內容</button>
+          </div>
+        </article>
+
+        <!-- 9. 均衡飲食 衛教教學 -->
+        <article class="work">
+          <div class="work-cover"><span class="work-num">09</span>
+            <img src="cover-diet.png" alt="《均衡飲食》簡報封面">
+          </div>
+          <div class="work-body">
+            <span class="work-tag">衛教教學設計</span>
+            <h3 class="work-title">均衡飲食｜學童營養衛教</h3>
+            <p class="work-desc">針對學童外食與零食攝取過多的飲食缺口，完成教學評估、教學計畫到教學評值的完整衛教設計。</p>
+            <button class="btn btn-sm" onclick="openModal('modal-diet')">檢視詳細內容</button>
+          </div>
+        </article>
+
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== 詳細內容彈窗 ==================== -->
+
+  <div id="modal-startup" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-startup')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">創新創業</span>
+        <h2 class="modal-title">homie 加壓機 創新創業企劃展示</h2>
+      </div>
+      <div class="modal-body">
+        <div class="award-line">🏆 2026 NYCU 創新創業競賽　優選團隊獎</div>
+        <p>結合醫護教育、數位學習與創新思維，規劃可行之醫療器材「homie 加壓機」商業模式提案與展示成果。</p>
+
+        <div class="media-block">
+          <div class="media-label">互動簡報 <span>（可直接在下方翻頁）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.canva.com/design/DAHLCKL8vvA/1SfUfULpvj27vh99G-9IFg/view?embed" title="homie 簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>簡報載入中…</b></div>
+          </div>
+        </div>
+
+        <div class="media-block">
+          <div class="media-label">專案影片 <span>（點擊直接播放）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.youtube-nocookie.com/embed/mlE8Pi0HSwE?rel=0" title="homie 加壓機 專案影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="media-block">
+          <div class="media-label">活動花絮 <span>（點圖可看原圖）</span></div>
+          <div class="photo-grid"><figure><a href="photo-homie-award.jpg" target="_blank"><img src="photo-homie-award.jpg" alt="2026 NYCU 創新創業競賽 頒獎典禮" loading="lazy"></a><figcaption>2026 NYCU 創新創業競賽 頒獎典禮</figcaption></figure><figure><a href="photo-homie-pitch.jpg" target="_blank"><img src="photo-homie-pitch.jpg" alt="決賽簡報" loading="lazy"></a><figcaption>決賽簡報</figcaption></figure><figure><a href="photo-homie-team.jpg" target="_blank"><img src="photo-homie-team.jpg" alt="團隊合影" loading="lazy"></a><figcaption>團隊合影</figcaption></figure></div>
+        </div>
+        <div class="chips"><span>創新創業</span><span>醫療器材</span><span>商業企劃</span><span>Canva 簡報</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-podcast" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-podcast')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">PODCAST</span>
+        <h2 class="modal-title">Podcast《熬夜的代價：你以為的放鬆是慢性傷害》</h2>
+      </div>
+      <div class="modal-body">
+        <p>節目企劃主題發想、聲線呈現、訪談對談以及數位音訊後製剪輯與作品呈現。</p>
+        <div class="media-block">
+          <div class="media-label">節目簡報《熬夜 so bad!!!》 <span>（可直接在下方翻頁）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.canva.com/design/DAHM5vI1tLA/VIv8CthtrtbZjIS972fYQA/view?embed" title="熬夜 so bad 簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>載入中…</b></div>
+          </div>
+        </div>
+
+        <div class="media-block">
+          <div class="media-label">節目內容 <span>（點擊直接播放）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.youtube-nocookie.com/embed/3MiTxEXkGy8?rel=0" title="Podcast 熬夜的代價" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="chips"><span>Podcast</span><span>健康議題</span><span>音訊後製</span><span>Canva 簡報</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-ebook" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-ebook')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">互動電子書</span>
+        <h2 class="modal-title">《睡眠怪獸的祕密：什麼會偷走你的睡眠》</h2>
+      </div>
+      <div class="modal-body">
+        <p><strong>創作動機：</strong>國小學生普遍存在睡眠不足與作息不規律的情形。本作品以「睡眠怪獸」將抽象睡眠概念具象化，提升學習動機並建立良好作息。</p>
+        <h4>教學目標</h4>
+        <p>• <strong>認知：</strong>了解睡眠功能、年齡所需睡眠時數及品質影響因素。<br>
+           • <strong>情意：</strong>建立重視睡眠健康的正向態度與調整意願。<br>
+           • <strong>技能：</strong>實踐睡前放鬆儀式，避免影響睡眠之不良行為。</p>
+        <h4>教學策略與亮點</h4>
+        <p>• <strong>故事與角色設計：</strong>以「睡眠怪獸」與「夢境精靈」降低學習門檻。<br>
+           • <strong>遊戲化學習：</strong>拖曳分類、找怪獸等互動任務，落實做中學。<br>
+           • <strong>睡前 10 分鐘小儀式：</strong>深呼吸、聽放鬆音樂、伸展等簡單可執行行為。</p>
+        <div class="media-block">
+          <div class="media-label">互動電子書 <span>（可直接在下方翻頁）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.canva.com/design/DAG7Bjr8LN4/c9Js0P0vwiIcGe-6Ns50tA/view?embed" title="睡眠怪獸的祕密 電子書" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>載入中…</b></div>
+          </div>
+        </div>
+        <div class="chips"><span>互動電子書</span><span>國小衛教</span><span>遊戲化學習</span><span>Canva</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-h5p" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-h5p')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">H5P 互動</span>
+        <h2 class="modal-title">H5P 數位互動學習模組</h2>
+      </div>
+      <div class="modal-body">
+        <p>運用 H5P 數位工具打造情境問答與互動組件，將複雜知識轉換為有趣的卡片與問答探索。</p>
+        <div class="media-block">
+          <div class="media-label">作品展示 <span>（點擊直接播放）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.youtube-nocookie.com/embed/9i_mJC0w_IQ?rel=0" title="H5P 數位互動學習模組" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="chips"><span>H5P</span><span>互動問答</span><span>數位教材</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-arvr" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-arvr')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">AR / VR 專案</span>
+        <h2 class="modal-title">C手相救 AR / VR 專案</h2>
+      </div>
+      <div class="modal-body">
+        <p>結合 AR（擴增實境）與 VR（虛擬實境）技術，打造身歷其境的急救演練場域，強化 CPR 操作流程與即時反應。</p>
+        <div class="media-block">
+          <div class="media-label">作品介紹簡報 <span>（可直接在下方捲動瀏覽）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://drive.google.com/file/d/1OfAz-_mBLYo26WnKliVHXB4TrDBHQpKs/preview" title="C手相救 作品介紹簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>載入中…</b></div>
+          </div>
+        </div>
+        <div class="chips"><span>AR / VR</span><span>CPR + AED</span><span>遊戲化學習</span><span>情境模擬</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-poster" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-poster')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">平面視覺與簡報</span>
+        <h2 class="modal-title">簡報及海報模板製作</h2>
+      </div>
+      <div class="modal-body">
+        <p>包含科技感簡報模組設計（封面、目錄、時間軸沿革、階梯展示圖）與衛教宣導海報（《多抽幾根煙 早日上西天》）。點擊圖片可放大檢視。</p>
+        <div class="img-gallery">
+          <a href="2026-10-11 212908.png" target="_blank"><img src="2026-10-11 212908.png" alt="簡報封面模板"></a>
+          <a href="2026-10-11 212924.png" target="_blank"><img src="2026-10-11 212924.png" alt="簡報目錄頁"></a>
+          <a href="2026-10-11 212940.png" target="_blank"><img src="2026-10-11 212940.png" alt="系所沿革時間軸"></a>
+          <a href="2026-10-11 212957.png" target="_blank"><img src="2026-10-11 212957.png" alt="課程規劃時程線"></a>
+          <a href="2026-10-11 213004.png" target="_blank"><img src="2026-10-11 213004.png" alt="學術活動階梯圖"></a>
+          <a href="2026-10-11 213012.png" target="_blank"><img src="2026-10-11 213012.png" alt="發展進程圖"></a>
+          <a href="2026-10-11 212210.png" target="_blank"><img src="2026-10-11 212210.png" alt="衛教宣導海報"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-script" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-script')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">影音分鏡與導演執導</span>
+        <h2 class="modal-title">腳本企劃短片《鏡中不是我》</h2>
+      </div>
+      <div class="modal-body">
+        <p><strong>指導老師：</strong>劉一凡老師｜<strong>團隊成員：</strong>王鈺雯、鄭詩穎、陳柔臻、陳昱岑、陳宏耀、林亭萱</p>
+        <h4>故事大綱（電影三幕劇結構）</h4>
+        <p>在社群媒體主宰日常的世界裡，外貌成為被不斷檢視的商品。女大生林予晴習慣透過濾鏡觀看自己，逐漸無法接受「未修飾的臉」。某天，她上傳一張精修自拍後，立刻收到匿名訊息：「這不是你。」並附上一張扭曲失衡的照片……真相揭示匿名帳號正是她自己，深刻刻畫自我認同與認知扭曲。</p>
+        <h4>製作規格與導演經驗</h4>
+        <p>• <strong>導演執導（陳宏耀）：</strong>本次專案由陳宏耀擔任導演，體驗從手機拍片升級至專業攝影機的完整拍攝流程與調度過程。<br>
+           • <strong>攝影器材：</strong>Sony NX100 專業攝影機、iPhone 17（4K 60p 規格）。<br>
+           • <strong>拍攝場地：</strong>康寧大學普通教室、導師辦公室（輔導室場景）與居家場景。</p>
+        <div class="media-block">
+          <div class="media-label">成果影片 <span>（點擊直接播放）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.youtube-nocookie.com/embed/wqnF-4a9V90?rel=0" title="鏡中不是我 成果影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="media-block">
+          <div class="media-label">腳本簡報 <span>（可直接在下方翻頁）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.canva.com/design/DAHNXSoFqxE/qzm47h4Ae2_EiH1NJ5IZEw/view?embed" title="鏡中不是我 腳本簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>載入中…</b></div>
+          </div>
+        </div>
+        <div class="media-block">
+          <div class="media-label">活動花絮 <span>（點圖可看原圖）</span></div>
+          <div class="photo-grid single"><figure><a href="photo-mirror-slate.jpg" target="_blank"><img src="photo-mirror-slate.jpg" alt="拍攝現場：Sony 專業攝影機與場記板" loading="lazy"></a><figcaption>拍攝現場：Sony 專業攝影機與場記板</figcaption></figure></div>
+        </div>
+        <div class="chips"><span>導演執導</span><span>腳本企劃</span><span>短片拍攝</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-sel" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-sel')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">情境模擬教學</span>
+        <h2 class="modal-title">溝通情境模擬｜SEL 社會情緒學習</h2>
+      </div>
+      <div class="modal-body">
+        <p><strong>指導老師：</strong>林郁汶老師｜<strong>團隊成員：</strong>王鈺雯、鄭詩穎、陳柔臻、陳宏耀</p>
+        <h4>教學設計重點</h4>
+        <p>• <strong>情境模擬教學：</strong>以真實或模擬的生活情境為核心，透過故事、角色扮演與案例，讓學生在接近真實的環境中學習。<br>
+           • <strong>SEL 社會情緒學習：</strong>聚焦溝通與情緒覺察，培養人際互動能力。<br>
+           • <strong>ADDIE 教學設計模式：</strong>從分析、設計、發展、實施到評鑑，完整規劃教學活動，並附前測與心得反思。</p>
+        <div class="media-block">
+          <div class="media-label">課程簡報 <span>（可直接在下方翻頁）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.canva.com/design/DAHJtoHUj9M/riqFkLk35FksLb1FSI9ZxA/view?embed" title="溝通情境模擬 課程簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>載入中…</b></div>
+          </div>
+        </div>
+        <div class="chips"><span>情境模擬</span><span>SEL</span><span>ADDIE</span><span>角色扮演</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-diet" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content wide">
+      <button class="modal-close" onclick="closeModal('modal-diet')" aria-label="關閉">&times;</button>
+      <div class="modal-head">
+        <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
+        <span class="modal-tag">衛教教學設計</span>
+        <h2 class="modal-title">均衡飲食｜學童營養衛教</h2>
+      </div>
+      <div class="modal-body">
+        <p><strong>團隊成員：</strong>蔡珊珊、王鈺雯、陳昱岑、陳宏耀</p>
+        <h4>教學背景</h4>
+        <p>現代家庭生活忙碌、外食頻率高，學童常自行購買餐食或大量攝取零食，飲食偏向高油、高糖、低纖維。國民營養調查也顯示，多數成人在乳品、堅果種子、蔬菜與水果類攝取不足，長期易導致慢性疾病與亞健康狀態。</p>
+        <h4>教學架構</h4>
+        <p>• <strong>教學評估：</strong>分析學童飲食現況與營養缺口。<br>
+           • <strong>教學計畫：</strong>設計適合學童的均衡飲食教學活動。<br>
+           • <strong>教學評值：</strong>檢視學習成效與行為改變。<br>
+           • <strong>實地教學：</strong>進入國小班級實際授課，以互動問答帶領學童認識六大類食物。</p>
+        <div class="media-block">
+          <div class="media-label">課程簡報 <span>（可直接在下方翻頁）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.canva.com/design/DAG7fYfofog/CcDBtXUaG9pirIZO5iLBBA/view?embed" title="均衡飲食 課程簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>載入中…</b></div>
+          </div>
+        </div>
+        <div class="media-block">
+          <div class="media-label">活動花絮 <span>（點圖可看原圖）</span></div>
+          <div class="photo-grid single"><figure><a href="photo-diet-class.jpg" target="_blank"><img src="photo-diet-class.jpg" alt="國小班級實地教學" loading="lazy"></a><figcaption>國小班級實地教學</figcaption></figure></div>
+        </div>
+        <div class="chips"><span>衛生教育</span><span>營養教育</span><span>教學計畫</span><span>學童</span></div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
   <footer>
     <div class="container">
       <span><strong>陳宏耀</strong>&nbsp;&nbsp;CHEN, HUNG-YAO</span>
@@ -340,5 +935,47 @@
     </div>
   </footer>
 
+  <script>
+
+    // 打開視窗時才載入簡報與影片；關掉時清空，影片就會停止播放
+    function openModal(id) {
+      var m = document.getElementById(id);
+      m.querySelectorAll('iframe[data-src]').forEach(function (f) {
+        if (f.dataset.src) { f.src = f.dataset.src; var e = f.parentNode.querySelector('.media-empty'); if (e) e.remove(); }
+      });
+      m.classList.add('active'); document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      var m = document.getElementById(id);
+      m.querySelectorAll('iframe[data-src]').forEach(function (f) { f.removeAttribute('src'); });
+      m.classList.remove('active'); document.body.style.overflow = '';
+    }
+    window.addEventListener('click', function (e) { if (e.target.classList.contains('modal')) closeModal(e.target.id); });
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') document.querySelectorAll('.modal.active').forEach(function (m) { closeModal(m.id); });
+    });
+  
+    (function () {
+      var map = { '首頁2.html': 'home', '個人簡介2.0.html': 'about', '作品集.html': 'works', '': 'home' };
+      var titles = { home: '首頁 | 陳宏耀個人作品集', about: '個人簡介 | 陳宏耀', works: '作品集 | 陳宏耀個人作品集' };
+      function show(key, push) {
+        if (!titles[key]) key = 'home';
+        document.querySelectorAll('.spa-page').forEach(function (p) { p.classList.toggle('is-active', p.dataset.page === key); });
+        document.querySelectorAll('.nav-links a[data-page]').forEach(function (a) { a.classList.toggle('active', a.dataset.page === key); });
+        document.title = titles[key];
+        if (push) { try { history.replaceState(null, '', '#' + key); } catch (e) { location.hash = key; } }
+        window.scrollTo(0, 0);
+      }
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href]');
+        if (!a || a.target === '_blank') return;
+        var href = decodeURI(a.getAttribute('href').split('#')[0].split('?')[0]).split('/').pop();
+        if (href in map) { e.preventDefault(); show(map[href], true); }
+      });
+      var start = location.hash.replace('#', '') || document.body.dataset.start;
+      show(start, false);
+    })();
+
+  </script>
 </body>
 </html>
