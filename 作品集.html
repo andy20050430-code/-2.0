@@ -180,6 +180,17 @@
     .work.is-soon:hover { transform: none; }
     .soon { align-self: flex-start; font-size: .8rem; font-weight: 700; letter-spacing: 2px; color: var(--muted); border: 1px solid var(--line); padding: 6px 14px; border-radius: 2px; }
 
+    /* 彈窗內直接預覽：簡報與影片 */
+    .modal-content.wide { max-width: 980px; }
+    .media-block { margin-top: 26px; }
+    .media-label { display: flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 700; color: var(--teal-dark); letter-spacing: 1px; margin-bottom: 10px; }
+    .media-label span { color: var(--muted); font-weight: 500; letter-spacing: 0; }
+    .media-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--slate); border-radius: 4px; overflow: hidden; box-shadow: var(--shadow); }
+    .media-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .media-empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--mist-2); font-size: .9rem; text-align: center; padding: 20px; }
+    .media-empty b { color: #fff; font-size: 1rem; letter-spacing: 1px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .chips span { font-size: .78rem; font-weight: 500; color: var(--teal-dark); background: var(--teal-soft); padding: 3px 12px; border-radius: 2px; }
     /* 彈窗 */
     .modal { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(47,53,59,.7); backdrop-filter: blur(4px); padding: 24px; align-items: center; justify-content: center; }
     .modal.active { display: flex; animation: fade .25s var(--ease); }
@@ -344,7 +355,7 @@
   <!-- ==================== 詳細內容彈窗 ==================== -->
 
   <div id="modal-startup" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
+    <div class="modal-content wide">
       <button class="modal-close" onclick="closeModal('modal-startup')" aria-label="關閉">&times;</button>
       <div class="modal-head">
         <div class="geo" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="dot"></span></div>
@@ -353,9 +364,23 @@
       </div>
       <div class="modal-body">
         <p>結合醫護教育、數位學習與創新思維，規劃可行之醫療器材「homie 止血機」商業模式提案與展示成果。</p>
-        <div class="modal-actions">
-          <a href="https://youtu.be/mlE8Pi0HSwE?si=An2YNQycx_Tj0LCv" target="_blank" class="btn">▶ 觀看創新創業專案影片</a>
+
+        <div class="media-block">
+          <div class="media-label">互動簡報 <span>（可直接在下方翻頁）</span></div>
+          <div class="media-frame">
+            <iframe data-src="" title="homie 止血機 簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
+            <div class="media-empty"><b>簡報預覽準備中</b>Canva 嵌入連結設定後會顯示在這裡</div>
+          </div>
         </div>
+
+        <div class="media-block">
+          <div class="media-label">專案影片 <span>（點擊直接播放）</span></div>
+          <div class="media-frame">
+            <iframe data-src="https://www.youtube-nocookie.com/embed/mlE8Pi0HSwE?rel=0" title="homie 止血機 專案影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="chips"><span>創新創業</span><span>醫療器材</span><span>商業企劃</span><span>Canva 簡報</span></div>
       </div>
     </div>
   </div>
@@ -491,8 +516,19 @@
   </footer>
 
   <script>
-    function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+    // 打開視窗時才載入簡報與影片；關掉時清空，影片就會停止播放
+    function openModal(id) {
+      var m = document.getElementById(id);
+      m.querySelectorAll('iframe[data-src]').forEach(function (f) {
+        if (f.dataset.src) { f.src = f.dataset.src; var e = f.parentNode.querySelector('.media-empty'); if (e) e.remove(); }
+      });
+      m.classList.add('active'); document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      var m = document.getElementById(id);
+      m.querySelectorAll('iframe[data-src]').forEach(function (f) { f.removeAttribute('src'); });
+      m.classList.remove('active'); document.body.style.overflow = '';
+    }
     window.addEventListener('click', function (e) { if (e.target.classList.contains('modal')) closeModal(e.target.id); });
     window.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') document.querySelectorAll('.modal.active').forEach(function (m) { closeModal(m.id); });
