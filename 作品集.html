@@ -191,6 +191,18 @@
     .media-empty b { color: #fff; font-size: 1rem; letter-spacing: 1px; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
     .chips span { font-size: .78rem; font-weight: 500; color: var(--teal-dark); background: var(--teal-soft); padding: 3px 12px; border-radius: 2px; }
+    /* 活動花絮照片 */
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .photo-grid a { display: block; overflow: hidden; border-radius: 4px; background: var(--surface-2); }
+    .photo-grid img { width: 100%; height: 220px; object-fit: cover; transition: transform .5s var(--ease); }
+    .photo-grid a:hover img { transform: scale(1.04); }
+    .photo-grid figure { margin: 0; }
+    .photo-grid.single { display: flex; }
+    .photo-grid.single a { display: inline-block; }
+    .photo-grid.single img { width: auto; height: auto; max-width: 100%; max-height: 420px; }
+    .photo-grid figcaption { font-size: .8rem; color: var(--muted); padding: 6px 2px 0; }
+    .award { position: absolute; z-index: 2; top: 14px; right: 14px; background: var(--teal); color: #fff; font-size: .74rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; box-shadow: var(--shadow); }
+    .award-line { display: inline-flex; align-items: center; gap: 8px; background: var(--teal-soft); color: var(--teal-dark); font-weight: 700; font-size: .9rem; padding: 6px 14px; border-left: 4px solid var(--teal); margin-bottom: 14px; }
     /* 彈窗 */
     .modal { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(47,53,59,.7); backdrop-filter: blur(4px); padding: 24px; align-items: center; justify-content: center; }
     .modal.active { display: flex; animation: fade .25s var(--ease); }
@@ -252,7 +264,7 @@
 
         <!-- 1. 創新創業 -->
         <article class="work">
-          <div class="work-cover"><span class="work-num">01</span><img src="homie.png" alt="homie 加壓機 創新創業"></div>
+          <div class="work-cover"><span class="work-num">01</span><span class="award">🏆 優選團隊獎</span><img src="photo-homie-award.jpg" alt="homie 加壓機 榮獲 2026 NYCU 創新創業競賽優選團隊獎" style="object-position: center 40%;"></div>
           <div class="work-body">
             <span class="work-tag">創新創業</span>
             <h3 class="work-title">homie 加壓機 創新創業企劃</h3>
@@ -377,6 +389,7 @@
         <h2 class="modal-title">homie 加壓機 創新創業企劃展示</h2>
       </div>
       <div class="modal-body">
+        <div class="award-line">🏆 2026 NYCU 創新創業競賽　優選團隊獎</div>
         <p>結合醫護教育、數位學習與創新思維，規劃可行之醫療器材「homie 加壓機」商業模式提案與展示成果。</p>
 
         <div class="media-block">
@@ -394,6 +407,10 @@
           </div>
         </div>
 
+        <div class="media-block">
+          <div class="media-label">活動花絮 <span>（點圖可看原圖）</span></div>
+          <div class="photo-grid"><figure><a href="photo-homie-award.jpg" target="_blank"><img src="photo-homie-award.jpg" alt="2026 NYCU 創新創業競賽 頒獎典禮" loading="lazy"></a><figcaption>2026 NYCU 創新創業競賽 頒獎典禮</figcaption></figure><figure><a href="photo-homie-pitch.jpg" target="_blank"><img src="photo-homie-pitch.jpg" alt="決賽簡報" loading="lazy"></a><figcaption>決賽簡報</figcaption></figure><figure><a href="photo-homie-team.jpg" target="_blank"><img src="photo-homie-team.jpg" alt="團隊合影" loading="lazy"></a><figcaption>團隊合影</figcaption></figure></div>
+        </div>
         <div class="chips"><span>創新創業</span><span>醫療器材</span><span>商業企劃</span><span>Canva 簡報</span></div>
       </div>
     </div>
@@ -553,6 +570,10 @@
             <div class="media-empty"><b>載入中…</b></div>
           </div>
         </div>
+        <div class="media-block">
+          <div class="media-label">活動花絮 <span>（點圖可看原圖）</span></div>
+          <div class="photo-grid single"><figure><a href="photo-mirror-slate.jpg" target="_blank"><img src="photo-mirror-slate.jpg" alt="拍攝現場：Sony 專業攝影機與場記板" loading="lazy"></a><figcaption>拍攝現場：Sony 專業攝影機與場記板</figcaption></figure></div>
+        </div>
         <div class="chips"><span>導演執導</span><span>腳本企劃</span><span>短片拍攝</span></div>
       </div>
     </div>
@@ -599,13 +620,18 @@
         <h4>教學架構</h4>
         <p>• <strong>教學評估：</strong>分析學童飲食現況與營養缺口。<br>
            • <strong>教學計畫：</strong>設計適合學童的均衡飲食教學活動。<br>
-           • <strong>教學評值：</strong>檢視學習成效與行為改變。</p>
+           • <strong>教學評值：</strong>檢視學習成效與行為改變。<br>
+           • <strong>實地教學：</strong>進入國小班級實際授課，以互動問答帶領學童認識六大類食物。</p>
         <div class="media-block">
           <div class="media-label">課程簡報 <span>（可直接在下方翻頁）</span></div>
           <div class="media-frame">
             <iframe data-src="https://www.canva.com/design/DAG7fYfofog/CcDBtXUaG9pirIZO5iLBBA/view?embed" title="均衡飲食 課程簡報" loading="lazy" allowfullscreen allow="fullscreen"></iframe>
             <div class="media-empty"><b>載入中…</b></div>
           </div>
+        </div>
+        <div class="media-block">
+          <div class="media-label">活動花絮 <span>（點圖可看原圖）</span></div>
+          <div class="photo-grid single"><figure><a href="photo-diet-class.jpg" target="_blank"><img src="photo-diet-class.jpg" alt="國小班級實地教學" loading="lazy"></a><figcaption>國小班級實地教學</figcaption></figure></div>
         </div>
         <div class="chips"><span>衛生教育</span><span>營養教育</span><span>教學計畫</span><span>學童</span></div>
       </div>
